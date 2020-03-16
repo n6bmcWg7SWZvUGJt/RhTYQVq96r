@@ -1,0 +1,2 @@
+alter table MARKET_SHOP add constraint FK_MARKET_SHOP_ON_ADDRESS foreign key (ADDRESS_ID) references MARKET_ADDRESS(ID);
+create index IDX_MARKET_SHOP_ON_ADDRESS on MARKET_SHOP (ADDRESS_ID);

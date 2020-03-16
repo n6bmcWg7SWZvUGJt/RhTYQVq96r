@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.market.web.screens.shipment">
+    <data>
+        <instance id="shipmentDc"
+                  class="com.company.market.entity.Shipment"
+                  view="shipment-view">
+            <loader dynamicAttributes="true"/>
+            <collection id="shipmentPurchasesDc" property="purchase">
+            </collection>
+            <instance id="shipmentShopDc" property="shop"/>
+        </instance>
+        <collection id="shopsDc" class="com.company.market.entity.Shop" view="shop-view">
+            <loader id="shopsDl">
+                <query>
+                    <![CDATA[select e from market_Shop e ]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="shipmentDc">
+            <column width="250px">
+                <lookupPickerField id="lookupPickerField" property="shop" caption="Shop"
+                                   optionsContainer="shopsDc" visible="false">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </lookupPickerField>
+                <groupTable id="shipmentPurchaseTable" height="200px" width="400px" dataContainer="shipmentPurchasesDc"
+                >
+                    <columns>
+                        <column id="count"/>
+                        <column id="goods"/>
+                    </columns>
+                    <buttonsPanel>
+                        <button action="shipmentPurchaseTable.create"/>
+                        <button action="shipmentPurchaseTable.edit"/>
+                        <button action="shipmentPurchaseTable.remove"/>
+                    </buttonsPanel>
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="add" type="add"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                </groupTable>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

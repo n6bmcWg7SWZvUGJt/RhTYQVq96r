@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="market_Producer" name="producer-view" extends="_local">
+        <property name="commercialNetwork" view="_minimal"/>
+    </view>
+    <view entity="market_Product" name="product-view" extends="_local">
+        <property name="producer" view="_minimal"/>
+    </view>
+    <view entity="market_Goods" name="goods-view" extends="_local">
+        <property name="product" view="_minimal"/>
+        <property name="priceHistory" view="_minimal">
+            <property name="price"/>
+            <property name="shop" view="_minimal"/>
+            <property name="priceChangeDate"/>
+            <property name="goods" view="_minimal"/>
+        </property>
+        <property name="shop" view="_minimal">
+            <property name="goods" view="_minimal">
+                <property name="product" view="_minimal"/>
+            </property>
+        </property>
+    </view>
+    <view entity="market_Purchase" name="purchase-view" extends="_local">
+        <property name="goods" view="_minimal">
+            <property name="shop" view="_minimal"/>
+        </property>
+        <property name="shipment" view="_minimal"/>
+    </view>
+    <view entity="market_Shop" name="shop-view" extends="_local">
+        <property name="shipments" view="_minimal">
+            <property name="date"/>
+        </property>
+        <property name="address" view="_minimal">
+            <property name="town"/>
+            <property name="street"/>
+            <property name="house"/>
+        </property>
+        <property name="goods" view="_minimal">
+            <property name="price"/>
+            <property name="quantity"/>
+        </property>
+        <property name="commercialNetwork" view="_minimal"/>
+    </view>
+    <view entity="market_PriceHistory" name="priceHistory-view" extends="_local">
+        <property name="shop" view="_minimal"/>
+        <property name="goods" view="_minimal"/>
+    </view>
+    <view entity="market_Shipment" name="shipment-view" extends="_local">
+        <property name="shop" view="_minimal">
+            <property name="goods" view="_minimal"/>
+        </property>
+        <property name="purchase" view="_minimal"/>
+    </view>
+</views>

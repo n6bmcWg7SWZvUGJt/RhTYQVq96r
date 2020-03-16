@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="table"
+        messagesPack="com.company.market.web.screens.commercialnetwork">
+    <data readOnly="true">
+        <collection id="commercialNetworksDc"
+                    class="com.company.market.entity.CommercialNetwork"
+                    view="_local">
+            <loader id="commercialNetworksDl">
+                <query>
+                    <![CDATA[select e from market_CommercialNetwork e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="productsDc" class="com.company.market.entity.Product" view="product-view">
+            <loader id="productsDl">
+                <query>
+                    <![CDATA[select e from market_Product e ]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout
+            spacing="true">
+        <split orientation="horizontal" height="900px" width="100%">
+            <vbox spacing="true" expand="table" height="900px">
+                <filter id="filter"
+                                applyTo="table"
+                                dataLoader="commercialNetworksDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="commercialNetworksDc" height="900px">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="fullName"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox spacing="true" margin="false,false,false,true">
+                <form stylename="services">
+                    <label value="msg://calculatePurchasesService"/>
+                    <button caption="msg://CalculatePurchases" id="calPurButton"/>
+                    <textArea datatype="string" id="calPurOutputArea"/>
+                </form>
+                <form stylename="services">
+                    <label value="msg://lackOfGoodsService"/>
+                    <lookupPickerField id="absShLookupPickerField" optionsContainer="productsDc">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="open" type="picker_open"/>
+                        </actions>
+                    </lookupPickerField>
+                    <button id="absentShopButton" caption="msg://absentShopList"/>
+                    <textArea id="absShOutputArea"/>
+                </form>
+                <form stylename="services">
+                    <label value="msg://deficitService"/>
+                    <textField id="defGdsTextField"/>
+                    <button id="defGdsButton" caption="msg://deficitGoodsList"/>
+                    <textArea id="defGdsOutputArea"/>
+                </form>
+            </vbox>
+        </split>
+    </layout>
+</window>

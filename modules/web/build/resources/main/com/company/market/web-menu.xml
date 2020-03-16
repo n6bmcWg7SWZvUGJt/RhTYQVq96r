@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-market" insertBefore="administration">
+        <menu id="SalesNetworkManagement">
+            <item screen="market_CommercialNetwork.browse"/>
+            <item screen="market_Producer.browse"/>
+        </menu>
+        <separator/>
+        <menu id="ProductionManagement">
+            <item screen="market_Shop.browse"/>
+            <item screen="market_Product.browse"/>
+        </menu>
+    </menu>
+</menu-config>

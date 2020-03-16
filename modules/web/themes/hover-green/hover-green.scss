@@ -1,0 +1,247 @@
+@import "../hover/hover";
+
+@keyframes move-e{
+0%{left:0}
+100%{left:23px}
+}
+
+@keyframes rotate-e{
+0%{transform: rotate(0deg)}
+100%{transform: rotate(360deg)}
+}
+
+@mixin hover-green {
+  @include hover;
+
+      .v-app{
+      background: -webkit-linear-gradient(bottom,#365f43 0,#599c44 70%);
+      /* -webkit-linear-gradient(bottom,#365f43 0,#599c44 70%);*/
+      }
+
+      .v-tabsheet-tabsheetpanel {
+          background-image: linear-gradient(-82deg, #ffffff, #ffffff) !important;
+      }
+
+      .v-app-loading {
+          background: #e0e0e0 !important;
+      }
+
+      .v-slot-c-sidemenu-panel {
+          background-image: linear-gradient(to left,#447b55 0,#599c44 7px);
+          background: -webkit-linear-gradient(bottom,#365f43 0,#599c44 70%);
+          box-shadow: 1px 0px 3px 0px hsla(0, 0%, 0%, 0.28);
+      }
+
+      .c-sidemenu-panel {
+          background-image: linear-gradient(to left,#447b55 0,#599c44 7px);
+          border-right: 0px solid black;
+          background:
+           -webkit-linear-gradient(bottom,#447b55 0,#599c44 70%);
+           box-shadow: 1px 0px 3px 0px hsla(0, 0%, 0%, 0.28);
+
+           /*old-design
+           border-radius: 0 0 200px 50px;
+           height: 95% !important;
+           */
+      }
+      .v-slot-c-sidemenu-panel {
+          z-index: 999;
+      }
+      .c-sidemenu-panel .c-sidemenu-item-header {
+      color: #e0e0e0;
+      }
+      .c-sidemenu-panel .c-sidemenu{
+      color: #e0e0e0;
+      }
+      .c-sidemenu-panel{
+      color: #e0e0e0;
+      }
+      .FontAwesome {
+      color: #e0e0e0;
+      }
+      .c-sidemenu-panel .c-sidemenu-item {
+      font-weight: 100;
+      }
+      .c-sidemenu-panel .c-sidemenu-item :hover {
+          color: white;
+          font-weight: 900;
+      }
+
+      .v-button {
+          border-radius: 7px !important;
+      }
+
+      .c-login-submit-button{
+
+      }
+
+      .filter-search-button{
+
+      }
+      .c-primary-action,.c-login-submit-button{
+          transition: all 0.3s ease;
+          background: #2e9eca !important;
+          border: none !important;
+          box-shadow: 1px 0px 3px 0px hsla(0, 0%, 0%, 0.28) !important;
+          width: 100%;
+      }
+
+      .c-primary-action:hover,.c-login-submit-button:hover {
+          width: 102%;
+      }
+
+      .filter-search-button {
+      border-radius: 7px 0px 0px 7px !important;
+      border: 0px solid #346c30 !important;
+      }
+
+      .v-popupbutton {
+      border-radius: 0px 7px 7px 0px !important;
+      border: 0px solid #2a8824  !important;
+      border-left: 1px solid #2a8824 !important;
+      }
+
+      .c-primary-action:hover:after {
+          background-color: rgba(255, 255, 255, 0.0)!important;
+      }
+
+.v-slot.v-slot-services {
+    /* border: solid 3px #ebfde8; */
+    border-radius: 7px 7px 7px 7px;
+    margin: 0;
+    background: -webkit-linear-gradient(20deg,rgba(123,224,49,0.14) 0,rgba(117, 216, 92, 0.08) 70%);
+    padding: 7px;
+    box-shadow: 1px 0 3px 0 rgba(0,0,0,0.28);
+}
+
+
+      /*red css mark*/
+      .v-tabsheet-tabitemcell-redColorStyle{
+          color: #da4c4c;
+          background-color: #ffe8e8;
+          border-radius: 7px 7px 0 0;
+          border-bottom: 1px solid #c6c6c6;
+      }
+      .redColorStyle{
+      color: #da4c4c;
+      background-color: #ffe8e8;
+      }
+      .v-tabsheet-tabitemcell-redColorStyle .v-captiontext {
+          color: #da4c4c;
+      }
+      .redColorStyle:hover {
+          background-color: #ff7f7f;
+          color: #0e1920;
+      }
+      .redColorStyle.v-selected {
+          background-image: -webkit-linear-gradient(top,#ca2b2b 0,#ca2b2b 100%)!important;
+      }
+
+      /*shop name*/
+      span.v-captiontext {
+          color: #629f32;
+          font-weight: 900;
+          font-size: x-large;
+          text-shadow: 1px 0px 3px 0px hsla(0, 0%, 0%, 0.28);
+      }
+
+.c-sidemenu-item-caption{
+left: 0px;
+position: relative;
+transition: 0.1s;
+}
+
+.c-sidemenu-item-caption:before {
+    content: "\25CF  ";
+    color: hsla(0, 0%, 0%, 0);
+    font-weight: 900;
+    font-family: monospace;
+    position: inherit;
+    margin-left: 3%;
+}
+
+.c-sidemenu-item-caption:hover:before {
+    text-shadow: 0 0 6px #33ff00;
+    color: #33ff00;
+}
+
+.v-slot-c-sidemenu-panel {
+    overflow: hidden;
+}
+
+/*z-index fix*/
+span, .v-label, .v-slot-c-app-icon {
+    z-index: 20;
+    position: relative;
+}
+/*button overflow fix*/
+.v-widget.c-table-top.v-horizontallayout-c-table-top.v-has-width {
+    overflow: inherit;
+}
+/*services shadow overflow fix*/
+.v-verticallayout.v-layout.v-vertical.v-widget.v-has-width.v-margin-left {
+    overflow: initial;
+}
+.v-splitpanel-horizontal {
+    overflow: initial;
+}
+.v-scrollable {
+    overflow: initial !important;
+}
+/*row highlights fix*/
+td.v-table-cell-content.v-table-cell-content-cs.cs.redColorStyle {
+    color: inherit;
+    background: inherit;
+}
+/*screensaver fix*/
+.v-customlayout{
+    display: table !important;
+}
+
+
+
+/*menu gradient animation*/
+.c-sidemenu.v-widget.v-has-width.v-has-height:before {
+    content: "";
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    bottom: 50px;
+    margin-left: -50%;
+    /*border-radius: 150px;*/
+    pointer-events: none;
+
+    background: -webkit-linear-gradient(17deg,
+hsla(168, 50%, 45%, 0.9) 0,
+hsla(46, 50%, 49%, 0.9) 70%);
+    mix-blend-mode: soft-light;
+    opacity: 50%;
+    box-shadow: 0px 0 3px 1px rgba(0,0,0,0.1);
+
+    @include animation(53s linear infinite rotate-e)
+}
+.c-sidemenu.v-widget.v-has-width.v-has-height:after {
+    content: "";
+    position: absolute;
+    width: 400%;
+    height: 100%;
+    bottom: 50px;
+    margin-left: -230%;
+    /*border-radius: 150px;*/
+    pointer-events: none;
+
+    background: -webkit-linear-gradient(17deg,
+hsla(186, 50%, 44%, 0.9) 0,
+hsla(31, 50%, 45%, 0.9) 70%);
+    mix-blend-mode: overlay;
+    opacity: 50%;
+    box-shadow: 0px 0 3px 1px rgba(0,0,0,0.1);
+
+    @include animation(80s linear reverse infinite rotate-e)
+}
+
+
+
+
+
+}

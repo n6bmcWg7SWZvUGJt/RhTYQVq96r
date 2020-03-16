@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.market.web.screens.shop">
+    <data>
+        <instance id="shopDc"
+                  class="com.company.market.entity.Shop"
+                  view="shop-view">
+            <instance id="shopAddressDc" property="address">
+            </instance>
+            <loader/>
+            <collection id="shopGoodsesDc" property="goods"/>
+            <collection id="shopShipmentsesDc" property="shipments">
+            </collection>
+        </instance>
+        <collection id="commercialNetworksDc" class="com.company.market.entity.CommercialNetwork">
+            <loader id="commercialNetworksDl">
+                <query>
+                    <![CDATA[select e from market_CommercialNetwork e ]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="shopTabSheet" spacing="true">
+        <tabSheet id="shopTabSheet" caption="Shop Name">
+            <tab caption="msg://Shipment" margin="true,false,false,false" spacing="true" id="shipmentTab">
+                <groupTable id="shopShipmentsTable" height="100%" width="100%" dataContainer="shopShipmentsesDc"
+                            tabIndex="0">
+                    <columns>
+                        <column id="date"/>
+                        <column id="purchase"/>
+                    </columns>
+                    <actions>
+                        <action id="refresh" type="refresh"/>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action type="remove" id="remove"/>
+                    </actions>
+                    <buttonsPanel>
+                        <button id="shipmentCreateButton" action="shopShipmentsTable.create"/>
+                        <button id="shipmentEditButton" action="shopShipmentsTable.edit"/>
+                        <button id="shipmentRemoveButton" action="shopShipmentsTable.remove"/>
+                        <button id="shipmentRefreshButton" action="shopShipmentsTable.refresh"/>
+                    </buttonsPanel>
+                </groupTable>
+            </tab>
+            <tab caption="msg://Goods" margin="true,false,false,false" spacing="true" id="goodsTab" expand="shopGoodsTable">
+                <groupTable id="shopGoodsTable" height="100%" width="100%" dataContainer="shopGoodsesDc">
+                    <columns>
+                        <column id="product.name"/>
+                        <column id="price"/>
+                        <column id="quantity"/>
+                    </columns>
+                    <buttonsPanel>
+                        <button id="goodsCreateButton" action="shopGoodsTable.create"/>
+                        <button id="goodsEditButton" action="shopGoodsTable.edit"/>
+                        <button id="goodsRemoveButton" action="shopGoodsTable.remove"/>
+                        <button id="goodsRefreshButton" action="shopGoodsTable.refresh"/>
+                    </buttonsPanel>
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="refresh" type="refresh"/>
+                        <action id="edit" type="edit"/>
+                        <action type="remove" id="remove"/>
+                        <action id="exclude" type="exclude"/>
+                    </actions>
+                </groupTable>
+            </tab>
+            <tab caption="msg://Services" margin="true,false,false,false" spacing="true" id="servicesTab">
+                <vbox spacing="true">
+                    <form stylename="services">
+                        <button caption="Get purchase count" id="shopServiceButton"/>
+                        <textArea id="shopServicefield" datatype="string" cols="0" width="200" resizable="true"/>
+                    </form>
+                </vbox>
+            </tab>
+            <tab caption="msg://Property" margin="true,false,false,false" spacing="true" id="propertyTab">
+                <vbox spacing="true">
+                    <form id="form" dataContainer="shopDc">
+                        <column width="250px">
+                            <lookupField id="lookupField" property="shopType" caption="Shop type"/>
+                            <lookupPickerField
+                                    id="lookupPickerField" optionsContainer="commercialNetworksDc" property="commercialNetwork"
+                                    caption="Commercial Network">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="open" type="picker_open"/>
+                                </actions>
+                            </lookupPickerField>
+                            <textField id="shopAddressField_3" property="town" dataContainer="shopAddressDc"
+                            />
+                            <textField id="shopAddressField_2" property="street" dataContainer="shopAddressDc"/>
+                            <textField id="shopAddressField_1" dataContainer="shopAddressDc" property="house"/>
+                            <textField id="noField" property="no" dataContainer="shopDc"/>
+                            <textField id="nameField" property="name" dataContainer="shopDc"/>
+                        </column>
+                    </form>
+                    <hbox id="editActions" spacing="true">
+                        <button id="windowCommitAndCloseButton" action="windowCommitAndClose"/>
+                        <button id="windowCloseButton" action="windowClose"/>
+                    </hbox>
+                </vbox>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

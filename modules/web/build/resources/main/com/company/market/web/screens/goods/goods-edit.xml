@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.market.web.screens.goods">
+    <data>
+        <instance id="goodsDc"
+                  class="com.company.market.entity.Goods"
+                  view="goods-view">
+            <loader/>
+            <collection id="goodsPriceHistoriesDc" property="priceHistory"/>
+        </instance>
+        <collection id="productsDc" class="com.company.market.entity.Product" view="product-view">
+            <loader id="productsDl">
+                <query>
+                    <![CDATA[select e from market_Product e ]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="goodsesDc" class="com.company.market.entity.Goods" view="goods-view">
+            <loader id="goodsesDl">
+                <query>
+                    <![CDATA[select e from market_Goods e where e.shop = :shop]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="goodsDc">
+            <column width="250px">
+                <lookupPickerField id="lookupPickerField" optionsContainer="productsDc" property="product" caption="Product">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </lookupPickerField>
+                <textField id="priceField" property="price"/>
+                <textField id="quantityField" property="quantity"/>
+            </column>
+        </form>
+        <table id="goodsPriceHistoryTable" height="200px" width="400px" dataContainer="goodsPriceHistoriesDc" tabIndex="0">
+            <columns>
+                <column id="priceChangeDate"/>
+                <column id="price"/>
+            </columns>
+            <buttonsPanel>
+                <button id="chbtn" caption="Clear history"/>
+                <button id="removeButton" action="goodsPriceHistoryTable.remove"/>
+            </buttonsPanel>
+            <actions>
+                <action type="remove" id="remove"/>
+            </actions>
+        </table>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

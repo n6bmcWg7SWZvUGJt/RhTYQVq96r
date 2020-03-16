@@ -1,0 +1,3 @@
+alter table MARKET_PRODUCT alter column SHIPMENT_ID rename to SHIPMENT_ID__U16226 ^
+alter table MARKET_PRODUCT drop constraint FK_MARKET_PRODUCT_ON_SHIPMENT ;
+drop index IDX_MARKET_PRODUCT_ON_SHIPMENT ;
