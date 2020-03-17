@@ -32,9 +32,9 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="no"/>
-                <column id="name"/>
-                <column id="commercialNetwork"/>
+                <column id="no" caption="msg://no"/>
+                <column id="name" caption="msg://name"/>
+                <column id="commercialNetwork" caption="msg://commercialNetwork"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

@@ -30,14 +30,14 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="goodsDc">
             <column width="250px">
-                <lookupPickerField id="lookupPickerField" optionsContainer="productsDc" property="product" caption="Product">
+                <lookupPickerField id="lookupPickerField" optionsContainer="productsDc" property="product" caption="msg://Product">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>
                         <action id="open" type="picker_open"/>
                     </actions>
                 </lookupPickerField>
-                <textField id="priceField" property="price"/>
-                <textField id="quantityField" property="quantity"/>
+                <textField id="priceField" property="price" caption="msg://price"/>
+                <textField id="quantityField" property="quantity" caption="msg://quantity"/>
             </column>
         </form>
         <table id="goodsPriceHistoryTable" height="200px" width="400px" dataContainer="goodsPriceHistoriesDc" tabIndex="0">
@@ -46,7 +46,7 @@
                 <column id="price"/>
             </columns>
             <buttonsPanel>
-                <button id="chbtn" caption="Clear history"/>
+                <button id="chbtn" caption="msg://clearHistory"/>
                 <button id="removeButton" action="goodsPriceHistoryTable.remove"/>
             </buttonsPanel>
             <actions>

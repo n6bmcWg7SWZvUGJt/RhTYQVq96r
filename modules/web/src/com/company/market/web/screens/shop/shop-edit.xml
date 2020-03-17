@@ -30,8 +30,8 @@
                 <groupTable id="shopShipmentsTable" height="100%" width="100%" dataContainer="shopShipmentsesDc"
                             tabIndex="0">
                     <columns>
-                        <column id="date"/>
-                        <column id="purchase"/>
+                        <column id="date" caption="msg://date"/>
+                        <column id="purchase" caption="msg://purchase"/>
                     </columns>
                     <actions>
                         <action id="refresh" type="refresh"/>
@@ -50,9 +50,9 @@
             <tab caption="msg://Goods" margin="true,false,false,false" spacing="true" id="goodsTab" expand="shopGoodsTable">
                 <groupTable id="shopGoodsTable" height="100%" width="100%" dataContainer="shopGoodsesDc">
                     <columns>
-                        <column id="product.name"/>
-                        <column id="price"/>
-                        <column id="quantity"/>
+                        <column id="product.name" caption="msg://name"/>
+                        <column id="price" caption="msg://price"/>
+                        <column id="quantity" caption="msg://quantity"/>
                     </columns>
                     <buttonsPanel>
                         <button id="goodsCreateButton" action="shopGoodsTable.create"/>
@@ -72,7 +72,7 @@
             <tab caption="msg://Services" margin="true,false,false,false" spacing="true" id="servicesTab">
                 <vbox spacing="true">
                     <form stylename="services">
-                        <button caption="Get purchase count" id="shopServiceButton"/>
+                        <button caption="msg://getPurchaseCount" id="shopServiceButton"/>
                         <textArea id="shopServicefield" datatype="string" cols="0" width="200" resizable="true"/>
                     </form>
                 </vbox>
@@ -81,21 +81,23 @@
                 <vbox spacing="true">
                     <form id="form" dataContainer="shopDc">
                         <column width="250px">
-                            <lookupField id="lookupField" property="shopType" caption="Shop type"/>
+                            <lookupField id="lookupField" property="shopType" caption="msg://shopType"/>
                             <lookupPickerField
                                     id="lookupPickerField" optionsContainer="commercialNetworksDc" property="commercialNetwork"
-                                    caption="Commercial Network">
+                                    caption="msg://commercialNetwork">
                                 <actions>
                                     <action id="lookup" type="picker_lookup"/>
                                     <action id="open" type="picker_open"/>
                                 </actions>
                             </lookupPickerField>
                             <textField id="shopAddressField_3" property="town" dataContainer="shopAddressDc"
-                            />
-                            <textField id="shopAddressField_2" property="street" dataContainer="shopAddressDc"/>
-                            <textField id="shopAddressField_1" dataContainer="shopAddressDc" property="house"/>
-                            <textField id="noField" property="no" dataContainer="shopDc"/>
-                            <textField id="nameField" property="name" dataContainer="shopDc"/>
+                                       caption="msg://town"/>
+                            <textField id="shopAddressField_2" property="street" dataContainer="shopAddressDc"
+                                       caption="msg://street"/>
+                            <textField id="shopAddressField_1" dataContainer="shopAddressDc" property="house"
+                                       caption="msg://house"/>
+                            <textField id="noField" property="no" dataContainer="shopDc" caption="msg://no"/>
+                            <textField id="nameField" property="name" dataContainer="shopDc" caption="msg://name"/>
                         </column>
                     </form>
                     <hbox id="editActions" spacing="true">

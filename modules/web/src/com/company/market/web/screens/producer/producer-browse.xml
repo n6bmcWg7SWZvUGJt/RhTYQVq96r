@@ -38,8 +38,8 @@
                         <action id="remove" type="remove"/>
                     </actions>
                     <columns>
-                        <column id="name"/>
-                        <column id="fulName"/>
+                        <column id="name" caption="msg://name"/>
+                        <column id="fulName" caption="msg://fullName"/>
                     </columns>
                     <rowsCount/>
                     <buttonsPanel id="buttonsPanel"
@@ -58,8 +58,8 @@
                 <scrollBox id="fieldGroupBox">
                     <form id="form" dataContainer="producerDc">
                         <column width="250px">
-                            <textField id="nameField" property="name"/>
-                            <textField id="fulNameField" property="fulName"/>
+                            <textField id="nameField" property="name" caption="msg://name"/>
+                            <textField id="fulNameField" property="fulName" caption="msg://fullName"/>
                         </column>
                     </form>
                 </scrollBox>

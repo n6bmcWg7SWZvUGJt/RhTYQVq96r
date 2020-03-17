@@ -39,8 +39,8 @@
                         <action id="open" type="picker_open"/>
                     </actions>
                 </lookupPickerField>
-                <lookupField id="goodsField" caption="Goods" dataContainer="purchaseDc" optionsContainer="goodsesDc" property="goods"/>
-                <textField id="countField" property="count" dataContainer="purchaseDc">
+                <lookupField id="goodsField" caption="msg://Goods" dataContainer="purchaseDc" optionsContainer="goodsesDc" property="goods"/>
+                <textField id="countField" property="count" dataContainer="purchaseDc" caption="msg://count">
                 </textField>
             </column>
         </form>

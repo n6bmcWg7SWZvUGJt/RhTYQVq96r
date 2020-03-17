@@ -16,7 +16,7 @@
         <form id="form" dataContainer="commercialNetworkDc">
             <column width="250px">
                 <textField id="nameField" property="name"/>
-                <textField id="fullNameField" property="fullName"/>
+                <textField id="fullNameField" property="fullName" caption="msg://fullName"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
